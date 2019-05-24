@@ -29,7 +29,6 @@ public class OVChipkaartOracleDaoImpl extends OracleBaseDao implements OVChipkaa
 				kaart.setSaldo(rs.getInt("SALDO"));
 				kaart.setReizigerID(rs.getInt("REIZIGERID"));
 				
-				//kaart.setGbdatum(rs.getString("GEBOORTEDATUM"));
 				kaartenLijst.add(kaart);
 			}
 		} catch (SQLException e) {
@@ -99,9 +98,6 @@ public class OVChipkaartOracleDaoImpl extends OracleBaseDao implements OVChipkaa
 		if (kaart == null)
 			throw new IllegalArgumentException("kaart mag niet null zijn");
 
-//		String sql = "update OV_CHIPKAART set KAARTNUMMER=" + kaart.getKaartNummer() + "," + "GELDIGTOT=" + "'"
-//				+ kaart.getGeldigTot() + "'," + "KLASSE=" + kaart.getKlasse() + ","
-//				+ "SALDO=" + kaart.getSaldo() + "WHERE KAARTNUMMER=" + kaart.getKaartNummer();
 		
 		String sql = "update OV_CHIPKAART SET GELDIGTOT =" + "'" + kaart.getGeldigTot() + "'" + "WHERE KAARTNUMMER=" + kaart.getKaartNummer() ;
 		try {
@@ -226,7 +222,6 @@ public class OVChipkaartOracleDaoImpl extends OracleBaseDao implements OVChipkaa
 				+ ngeldigtot + "'," + "KLASSE=" + nklasse + ","
 				+ "SALDO=" + nsaldo + "WHERE KAARTNUMMER=" + kaartnummer;
 		
-//		String sql = "update OV_CHIPKAART SET GELDIGTOT =" + "'" + kaart.getGeldigTot() + "'" + "WHERE KAARTNUMMER=" + kaartnummer ;
 		try {
 			statement = con.prepareStatement(sql);
 			statement.executeUpdate(sql);
