@@ -8,9 +8,9 @@ public class OracleBaseDao {
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		String url = "jdbc:oracle:thin:@//localhost:8081/xe";
-		String name = "micheleII";
-		String password = "h2p2e3";
+		String url = "jdbc:oracle:thin:@//localhost:8088/xe";
+		String name = "MIMI";
+		String password = "Albena-66";
 
 		Connection con = DriverManager.getConnection(url, name, password);
 		return con;
